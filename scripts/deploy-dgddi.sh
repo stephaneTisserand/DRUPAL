@@ -11,27 +11,32 @@ export ROLLBACKFILE=$CURRENTPATH/../scripts/rollback-dgddi.yml
 
 if [ $? -eq 0 ]; then
     # Proceed DB updates
-    ../bin/drush/drush updb -y
-
-    # Check status & rollback
+    ../bin/composer install
     if [ $? -eq 0 ]; then
-        echo "OK: All DB update steps successfully passed!"
+        ../bin/drush updb -y
 
-        # Proceed post-deploy (backups)
-        ../bin/drupal chain --file=$DEPLOYFILE -y
-
+        # Check status & rollback
         if [ $? -eq 0 ]; then
-            echo "OK: All update steps successfully passed!"
+            echo "OK: All DB update steps successfully passed!"
+
+            # Proceed post-deploy (backups)
+            ../bin/drupal chain --file=$DEPLOYFILE -y
+
+            if [ $? -eq 0 ]; then
+                echo "OK: All update steps successfully passed!"
+            else
+                echo "FAIL: Updates - Rollback in progress..."
+                ../bin/drupal chain --file=$ROLLBACKFILE -y
+                echo "OK: Successfully rollbacked!"
+            fi
+
         else
-            echo "FAIL: Updates - Rollback in progress..."
+            echo "FAIL: DB updates - Rollback in progress..."
             ../bin/drupal chain --file=$ROLLBACKFILE -y
             echo "OK: Successfully rollbacked!"
         fi
-
     else
-        echo "FAIL: DB updates - Rollback in progress..."
-        ../bin/drupal chain --file=$ROLLBACKFILE -y
-        echo "OK: Successfully rollbacked!"
+        echo "composer failed"
     fi
 else
     echo "post-deploy script failed: abort execution."
