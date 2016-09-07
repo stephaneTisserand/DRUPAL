@@ -29,7 +29,6 @@ drupal/sites/simpletest
 
 # DGDDI specifics
 /cache
-#!drupal/core/lib/Drupal/Core/Cache
 /config/drupal/local
 /config/drupal/settings.local.php
 /data
