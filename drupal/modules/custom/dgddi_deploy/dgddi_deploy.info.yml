@@ -1,10 +1,9 @@
-name: DGDDI Deploy
+name: DGDDI deploy
 type: module
-description: Helper module to handle deployment process
+description: Permet de déployer les différents modules nécessaire pour drupal DGDDI
 core: 8.x
-package: DGDDI
+package: Custom
 
-# Required modules
 dependencies:
   # Core
   ######
@@ -47,8 +46,12 @@ dependencies:
   - text
   # Contrib
   #########
+  # Authentification
+  - simplesamlphp_auth
+  # User interface
   - restui
+  - admin_toolbar
   # Custom
-  #########
-#  - dgddi_salt
-#  - dgddi_sso
+  ########
+  #- dgddi_sso
+  - dgddi_salt

@@ -1,5 +1,0 @@
-drupal.access_token:
-  version: '1.0'
-  css:
-    component:
-      css/access_token.css: {}

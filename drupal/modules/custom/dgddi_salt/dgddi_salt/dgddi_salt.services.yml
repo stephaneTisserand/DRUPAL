@@ -1,0 +1,14 @@
+parameters:
+    api.code: 'xxxx'
+    api.password: 'xxxx'
+    api.salt: 'xxxx'
+    api.default_url: 'xxxx'
+
+services:
+    dgddi.salt.manager:
+        class: Drupal\dgddi_salt\SaltManager
+        arguments:
+            - "%api.code%"
+            - "%api.password%"
+            - "%api.salt%"
+            - "%api.default_url%"

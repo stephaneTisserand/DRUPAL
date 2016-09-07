@@ -7,7 +7,6 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Extension\InfoParser;
-
 /**
  * Implements hook_help().
  */
@@ -17,13 +16,12 @@ function dgddi_deploy_help($route_name, RouteMatchInterface $route_match) {
     case 'help.page.dgddi_deploy':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Helper module to handle deployment process') . '</p>';
+      $output .= '<p>' . t('Permet de déployer les différents modules nécessaire pour drupal DGDDI') . '</p>';
       return $output;
 
     default:
   }
 }
-
 /**
  * Updates dependencies based on the dgddi profile's info file.
  *

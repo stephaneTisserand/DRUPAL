@@ -16,7 +16,7 @@ function dgddi_deploy_install() {
   // instances of a codebase will have the same uuid, enabling us to
   // sync these instances via the config management system.
   // See also https://www.drupal.org/node/2133325
-  dgddi_deploy_set_uuid('ba021ded-e69a-40d8-a9fd-d71822c4d90c');
+  dgddi_deploy_set_uuid('ce67b09e-55d4-4475-b7be-1f410e85d78d');
   for ($i = 8001; $i < 9000; $i++) {
     $candidate = 'dgddi_deploy_update_' . $i;
     if (function_exists($candidate)) {
@@ -30,17 +30,10 @@ function dgddi_deploy_install() {
  */
 function dgddi_deploy_update_8001() {
   // If you add a new dependency during your development:
-  // (1) add your dependency to dgddi_deploy's .info file
+  // (1) add your dependency to dgddi profile's .info file
   // (2) increment the number in this function name (ex: change 8001 to 8002)
-  // (3) now, on each target environment, running drupal update:execute
+  // (3) now, on each target environment, running drush updb -y
   //     will call the dgddi_deploy_update_dependencies() function
   //     which in turn will enable all new dependencies.
-  dgddi_deploy_update_dependencies();
-}
-
-/**
- * Test deploy process script
- */
-function dgddi_deploy_update_8002() {
   dgddi_deploy_update_dependencies();
 }
