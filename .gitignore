@@ -34,3 +34,6 @@ config/drupal/settings.local.php
 data
 tmp
 docker-compose.yml
+
+# IDE
+.idea
