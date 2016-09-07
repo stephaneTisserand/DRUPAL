@@ -3,3 +3,52 @@ type: module
 description: Helper module to handle deployment process
 core: 8.x
 package: DGDDI
+
+# Required modules
+dependencies:
+  # Core
+  ######
+  - block
+  - block_content
+  - ckeditor
+  - config
+  - contact
+  - contextual
+  - editor
+  - field
+  - field_ui
+  - filter
+  - menu_link_content
+  - menu_ui
+  - node
+  - path
+  - rdf
+  - shortcut
+  - system
+  - taxonomy
+  - toolbar
+  - user
+  - views
+  - views_ui
+  # i18n
+  - language
+  - locale
+  # REST
+  - basic_auth
+  - hal
+  - rest
+  - serialization
+  # Fields
+  - datetime
+  - file
+  - image
+  - link
+  - options
+  - text
+  # Contrib
+  #########
+  - restui
+  # Custom
+  #########
+#  - dgddi_salt
+#  - dgddi_sso

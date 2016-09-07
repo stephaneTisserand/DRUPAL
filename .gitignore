@@ -21,6 +21,7 @@ drupal/sites/*/services*.yml
 
 # Ignore paths that contain user-generated content.
 drupal/sites/*/files
+drupal/sites/*/files/*
 !drupal/sites/default/files/translations
 drupal/sites/*/private
 
