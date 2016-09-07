@@ -1,0 +1,36 @@
+# This file contains default .gitignore rules. To use it, copy it to .gitignore,
+# and it will cause files like your settings.php and user-uploaded files to be
+# excluded from Git version control. This is a common strategy to avoid
+# accidentally including private information in public repositories and patch
+# files.
+#
+# Because .gitignore can be specific to your site, this file has a different
+# name; updating Drupal core will not override your custom .gitignore file.
+
+# Ignore core when managing all of a project's dependencies with Composer
+# including Drupal core.
+# core
+
+# Core's dependencies are managed with Composer.
+drupal/vendor
+
+# Ignore configuration files that may contain sensitive information.
+drupal/sites/*/settings*.php
+!drupal/sites/default/settings.php
+drupal/sites/*/services*.yml
+
+# Ignore paths that contain user-generated content.
+drupal/sites/*/files
+!drupal/sites/default/files/translations
+drupal/sites/*/private
+
+# Ignore SimpleTest multi-site environment.
+drupal/sites/simpletest
+
+# DGDDI specifics
+cache
+config/drupal/local
+config/drupal/settings.local.php
+data
+tmp
+docker-compose.yml

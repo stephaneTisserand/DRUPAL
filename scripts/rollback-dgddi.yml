@@ -1,0 +1,14 @@
+commands:
+# DB
+  - command: database:drop
+  - command: database:restore
+    options:
+      file: ../data/db/latest-dgddi-dump.sql
+# Conf
+  - command: config:import
+    options:
+      directory: ../config/drupal/local
+# Cache
+  - command: cache:rebuild
+    arguments:
+      cache: all

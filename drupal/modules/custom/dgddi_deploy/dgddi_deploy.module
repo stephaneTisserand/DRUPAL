@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Contains dgddi_deploy.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Extension\InfoParser;
+
+/**
+ * Implements hook_help().
+ */
+function dgddi_deploy_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dgddi_deploy module.
+    case 'help.page.dgddi_deploy':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Helper module to handle deployment process') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Updates dependencies based on the dgddi profile's info file.
+ *
+ * If during the course of development, you add a dependency to your
+ * site deployment module's .info file, increment the update hook
+ * (see the .install module) and this function will be called, making
+ * sure dependencies are enabled.
+ */
+function dgddi_deploy_update_dependencies() {
+  $parser = new InfoParser;
+  $info_file = $parser->parse(drupal_get_path('module', 'dgddi_deploy') . '/dgddi_deploy.info.yml');
+  if (isset($info_file['dependencies'])) {
+    \Drupal::service('module_installer')->install($info_file['dependencies'], TRUE);
+  }
+}
+
+/**
+ * Set the UUID of this website.
+ *
+ * By default, reinstalling a site will assign it a new random UUID, making
+ * it impossible to sync configuration with other instances. This function
+ * is called by site deployment module's .install hook.
+ *
+ * @param $uuid
+ *   A uuid string, for example 'e732b460-add4-47a7-8c00-e4dedbb42900'.
+ */
+function dgddi_deploy_set_uuid($uuid) {
+  \Drupal::configFactory() ->getEditable('system.site')
+    ->set('uuid', $uuid)
+    ->save();
+}    

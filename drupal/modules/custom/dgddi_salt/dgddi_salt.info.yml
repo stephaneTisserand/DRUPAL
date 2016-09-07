@@ -1,0 +1,5 @@
+name: DGDDI Salt
+type: module
+description: DGDDI URL Encrypt module
+core: 8.x
+package: DGDDI

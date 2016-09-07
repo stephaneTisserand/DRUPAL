@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains dgddi_salt.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dgddi_salt_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dgddi_salt module.
+    case 'help.page.dgddi_salt':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('DGDDI URL Encrypt module') . '</p>';
+      return $output;
+
+    default:
+  }
+}

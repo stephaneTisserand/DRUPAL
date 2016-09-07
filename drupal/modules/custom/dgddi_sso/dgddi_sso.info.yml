@@ -1,0 +1,5 @@
+name: DGDDI SSO
+type: module
+description: DGDDI SSO Propagation
+core: 8.x
+package: DGDDI

@@ -1,0 +1,5 @@
+name: DGDDI Deploy
+type: module
+description: Helper module to handle deployment process
+core: 8.x
+package: DGDDI

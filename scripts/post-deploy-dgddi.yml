@@ -1,0 +1,9 @@
+commands:
+# Dump previus
+  - command: database:dump
+    options:
+      file: ../data/db/latest-dgddi-dump.sql
+# Backup conf
+  - command: config:export
+    options:
+      directory: ../config/drupal/local

@@ -1,0 +1,19 @@
+parameters:
+    api.code: 'TEST'
+    api.password: 'TEST'
+    api.salt: 'qhdsfjhqdkf544564sdf5ds4f65ds'
+    api.default_url: 'http://val-bo1-api-rights.douane-gouv.tma/3.1/Teleservice'
+
+services:
+    dgddi.salt.manager:
+        class: Drupal\dgddi_salt\SaltManager
+        arguments:
+            - "%api.code%"
+            - "%api.password%"
+            - "%api.salt%"
+            - "%api.default_url%"
+
+    dgddi.salt.subscriber:
+      class: Drupal\dgddi_salt\EventSubscriber\DGDDISaltSubscriber
+      tags:
+        - { name: event_subscriber }

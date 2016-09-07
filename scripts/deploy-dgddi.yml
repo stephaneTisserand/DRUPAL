@@ -1,0 +1,5 @@
+commands:
+# Import new conf
+  - command: config:import
+    options:
+      directory: ../config/drupal/deploy
