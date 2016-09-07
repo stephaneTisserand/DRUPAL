@@ -28,11 +28,12 @@ drupal/sites/*/private
 drupal/sites/simpletest
 
 # DGDDI specifics
-cache
-config/drupal/local
-config/drupal/settings.local.php
-data
-tmp
+/cache
+#!drupal/core/lib/Drupal/Core/Cache
+/config/drupal/local
+/config/drupal/settings.local.php
+/data
+/tmp
 docker-compose.yml
 
 # IDE
